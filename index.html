@@ -13,16 +13,89 @@
         <h3>Assignment 6 &laquo; Data Visualization Dashboard &raquo;</h3>
     </div>
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
+    <div class="header">
+        <h4>Top 10 videogame sales by release year, measured in millions</h4>
+    </div>
+    <div class=slidecontainer>
+        <input type="range" min="1981" max="2016" value="1981" class="slider" id="YearSelector">
+        <div id="SelectValue"></div>
+        <div><label id="yearLabel" for="year"></label></div>
+    </div>
     <div class="row">
         <div class="col-lg-6">
             <div id="graph1"></div>
-            <div id="graph2"></div><br/>
+            <div class="header">
+                <h4>Gross sales of major publishers by game genre, in millions</h4>
+            </div>
+            <div style="display: flex; align-items: center; width: 100%">
+                <div class=genreDropDown>
+                    <label for="genre">Choose a genre:</label>
+                    <select name="genre" id="genrePicker">
+                        <option value="Sports">Sports</option>
+                        <option value="Platform">Platform</option>
+                        <option value="Racing">Racing</option>
+                        <option value="Role-Playing">Role-Playing</option>
+                        <option value="Puzzle">Puzzle</option>
+                        <option value="Misc">Misc</option>
+                        <option value="Shooter">Shooter</option>
+                        <option value="Simulation">Simulation</option>
+                        <option value="Action">Action</option>
+                        <option value="Fighting">Fighting</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Strategy">Strategy</option>
+                    </select>
+                    <input type="radio" id="avg" name="normalize" value="avg">
+                    <label for="avg">Average</label>
+                    <input type="radio" id="tot" name="normalize" value="tot" checked="checked">
+                    <label for="total">Overall</label>
+                </div>
+            </div>
+            <div id="graph2"></div>
         </div>
-        <div class="col-lg-6">
+        <div class="row" ></div>
+            <div> <h4>The breakdown of game sales by genre in selected region</h4></div>
+            <label for="region">Choose a region:</label>
+                    <select name="region" id="regionPicker">
+                        <option value="NA_Sales">North America</option>
+                        <option value="EU_Sales">EU</option>
+                        <option value="JP_Sales">Japan</option>
+                        <option value="Other_Sales">Other</option>
+                        <option value="Global_Sales">Global</option>
+                    </select>
             <div id="graph3"></div>
-        </div>
     </div>
+
+    <div>
+        <h2>Written questions</h2>
+        <p>1. The first bar graph shows the most popular videogame sales for each year, which trivially answers the first question.
+            The second bar graph is more dynamic, and allows you not only select for genre, but also select if you care about long term performance
+            or the average sale. Each piece of information is valuable in a different context: overall shows developers with history of success, 
+            while average normalizes the data for developers who've had less games. The piechart is supposed to answer which genre makes up the most of sales for 
+            each region. The chart is hard to read (and even worse from an accessibility standpoint with mixed colors and text over color), and if I had more time I would make the labels much nicer. However,
+            it still servers its purpose as the goal is to get the best selling genre for any given region, which this achieves. If I had more time, I would also normalize this data. 
+        </p>
+        <p>I feel like I can't accurately answer these questions bc I have no context with other visualiization tools, but here goes:</p>
+        <ol>
+            <li>It is dynamically updateable</li>
+            <li>It has cool transitions</li>
+            <li> It manages my data for me, I just give it arrays of objects</li>
+        </ol>
+        <ol>
+            <li>It demands data in a certain format</li>
+            <li>At least the way I implemented it, it is very computationally expensive because I'm using arrays instead of maps to do my computing, I would've preferred python over js for data management but don't know how to link the two</li>
+            <li>Positioning is really clunky, I couldn't center everything that I wanted to</li>
+        </ol>
+        <p>
+            The piechart is quite frankly a mess. I wanted to make it much easier to read/label but ran out of time; for example, I'd put divisions between each of the sections of the chart (as mentioned in the reading about being colorblind). Although I liked making the barcharts horizontal, it made the x axis difficult to read. People with difficulty reading my struggle to see the axis labels. I thought about making the text bigger, but this would take up more space. One thing that I don't have is any 'hover' tip, which is a good thing from an accessibility standpoint.
+        </p>
+        <p>
+            Using space effeciently vs. making visualizations accessible is definitely a tradeoff. Also, with more time I would've made the piechart better. 
+        </p>
+    </div>
+    
     <!--Feel free to add more JavaScript files as needed-->
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="main.js">
+            // const margin = {top: 40, right: 50, bottom: 150, left: 50};
+    </script>
 </body>
 </html>
